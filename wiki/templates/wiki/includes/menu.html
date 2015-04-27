@@ -1,0 +1,365 @@
+
+<div class="menu-wiki-dd">
+	{% load i18n %}{% load url from future %}
+	{% if urlpath %}
+
+	<h4> DIGITAL DOMAIN WIKI</h4>
+	  {% for article in articles %}
+	    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ current_revision.title}}</a></li>
+	  {% endfor %}  
+
+	            <div class="panel-group" id="accordion">
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h4 class="panel-title">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+	                            </span>Movies</a>
+	                        </h4>
+	                    </div>
+	                    <div id="collapseOne" class="panel-collapse collapse in">
+	                        <div class="panel-body">
+	                            <table class="table">
+	                                {% for child in children_slice %}
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-pencil text-primary"></span>    <a href="{% url 'wiki:get' path=child.path %}">
+	                                       {{ child.article.current_revision.title }}
+	                                        </a>
+	                                    </td>
+	                                </tr>
+                        	        {% empty %}
+
+
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="#"><em>{% trans "No sub-articles" %}</em></a>
+	                                    </td>
+	                                </tr>
+	                                 {% endfor %}
+	                                 {% if children_slice_more %}                       
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-file text-info"></span><a href="#"><em>{% trans "...and more" %}</em></a>
+	                                    </td>
+	                                </tr>
+
+	           {% endif %}    
+	           {% endif %}                    
+
+	                            </table>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h4 class="panel-title">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+	                            </span>Modules</a>
+	                        </h4>
+	                    </div>
+	                    <div id="collapseTwo" class="panel-collapse collapse">
+	                        <div class="panel-body">
+	                            <table class="table">
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Orders</a> <span class="label label-success">$ 320</span>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Invoices</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Shipments</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Tex</a>
+	                                    </td>
+	                                </tr>
+	                            </table>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h4 class="panel-title">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+	                            </span>Account</a>
+	                        </h4>
+	                    </div>
+	                    <div id="collapseThree" class="panel-collapse collapse">
+	                        <div class="panel-body">
+	                            <table class="table">
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Change Password</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Notifications</a> <span class="label label-info">5</span>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <a href="#">Import/Export</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="#" class="text-danger">
+	                                            Delete Account</a>
+	                                    </td>
+	                                </tr>
+	                            </table>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="panel panel-default">
+	                    <div class="panel-heading">
+	                        <h4 class="panel-title">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+	                            </span>Reports</a>
+	                        </h4>
+	                    </div>
+	                    <div id="collapseFour" class="panel-collapse collapse">
+	                        <div class="panel-body">
+	                            <table class="table">
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-usd"></span><a href="#">Sales</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-user"></span><a href="#">Customers</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-tasks"></span><a href="#">Products</a>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <td>
+	                                        <span class="glyphicon glyphicon-shopping-cart"></span><a href="#">Shopping Cart</a>
+	                                    </td>
+	                                </tr>
+	                            </table>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div> 
+	        </div>
+
+        <!-- <div class="row">
+          <div class="col-sm-9 col-md-9">
+              <div class="well">
+                  <h1>
+                      Accordion Menu With Icon</h1>
+                  Admin Dashboard Accordion Menu
+              </div>
+          </div>
+        </div> -->
+
+
+<!-- {% load i18n %}{% load url from future %}
+{% if urlpath %}
+<div id="article-breadcrumbs">
+
+<ul class="breadcrumb pull-left">
+  <li class="active">{{ article.current_revision.title|truncatechars:25 }}</li>
+  <li>
+  {% for ancestor in urlpath.cached_ancestors %}
+  <ul>
+    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ ancestor.article.current_revision.title|truncatechars:25 }}</a></li>
+  </ul>
+  {% endfor %}
+</li>
+  
+</ul>
+
+--------------
+
+  {% for ancestor in urlpath.cached_ancestors %}
+    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ ancestor.article.current_revision.title|truncatechars:25 }}</a></li>
+  {% endfor %}
+  <li class="active">{{ article.current_revision.title|truncatechars:25 }}</li>
+-------------
+<ul class="pull-left">
+  <li>
+  {% for child in children_slice %}
+  <ul >
+    <a href="{% url 'wiki:get' path=child.path %}">
+      {{ child.article.current_revision.title }}
+    </a>
+  </li>
+        {% empty %}
+        <li><a href="#"><em>{% trans "No sub-articles" %}</em></a></li>
+      </li>
+      {% endfor %}
+      {% if children_slice_more %}
+      <li><a href="#"><em>{% trans "...and more" %}</em></a></li>
+  {% endif %}
+</ul>
+
+
+
+
+<div class="pull-left" style="margin-left: 10px;">
+  <div class="btn-group">
+    <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 7px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
+      <span class="fa fa-sitemap"></span>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      {% for child in children_slice %}
+        <li>
+          <a href="{% url 'wiki:get' path=child.path %}">
+            {{ child.article.current_revision.title }}
+          </a>
+        </li>
+        {% empty %}
+        <li><a href="#"><em>{% trans "No sub-articles" %}</em></a></li>
+      {% endfor %}
+      {% if children_slice_more %}
+      <li><a href="#"><em>{% trans "...and more" %}</em></a></li>
+      {% endif %}
+      <li class="divider"></li>
+      <li>
+        <a href="{% url 'wiki:dir' path=urlpath.path %}">{% trans "Browse articles in this level" %} &raquo;</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="pull-left" style="margin-left: 10px;">
+  <div class="btn-group">
+    <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 7px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
+      <span class="fa fa-file"></span>
+      <span class="caret"></span>
+    </a>    
+    <ul class="dropdown-menu">
+      <li>
+        {% if urlpath.parent %}
+        <a href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 7px;">
+          <span class="fa fa-arrow-right"></span>
+          {% trans "New article next to" %} {{ article.current_revision.title }}
+        </a>
+        {% endif %}
+        <a href="{% url 'wiki:create' path=urlpath.path %}" style="padding: 7px;">
+          <span class="fa fa-arrow-down"></span>
+          {% trans "New article below" %} {{ article.current_revision.title }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div style="clear: both"></div>
+</div>
+{% endif %}
+-----------------------
+
+
+
+          
+{% if urlpath.parent %}
+
+        <a href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 7px;">
+          {% trans "urlpath.parent" %} {{ article.current_revision.title }}
+        </a>
+        {% endif %}
+        <h1 > hello world </h1>
+        <a href="{% url 'wiki:create' path=urlpath.path %}" style="padding: 7px;">
+          <span class="fa fa-arrow-down"></span>
+           <a href="{% url 'wiki:get' path=article.path %}"> {{ article.current_revision.title }}</a>
+        </a>
+
+
+
+          <ul class="">
+      {% for child in children_slice %}
+        <div>
+          <a href="{% url 'wiki:get' path=child.path %}">
+            {{ child.article.current_revision.title }}
+          </a>
+        </div>
+        {% empty %}
+        <div><a href="#"><em>{% trans "No sub-articles" %}</em></a></div>
+      {% endfor %}
+      {% if children_slice_more %}
+      <div><a href="#"><em>{% trans "...and more" %}</em></a></div>
+      {% endif %}
+      <div class="divider"></div>
+      <div>
+        <a href="{% url 'wiki:dir' path=urlpath.path %}">{% trans "Browse articles in this level" %} &raquo;</a>
+      </div>
+    </ul>
+
+
+
+---------------
+
+
+
+  <ul class="breadcrumb pull-left">
+  {% for ancestor in urlpath.cached_ancestors %}
+    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ ancestor.article.current_revision.title|truncatechars:25 }}</a></li>
+  {% endfor %}
+  <li class="active">{{ article.current_revision.title|truncatechars:25 }}</li>
+</ul>
+
+
+    <ul class="dropdown-menu">
+      {% for child in children_slice %}
+        <li>
+          <a href="{% url 'wiki:get' path=child.path %}">
+            {{ child.article.current_revision.title }}
+          </a>
+        </li>
+        {% empty %}
+        <li><a href="#"><em>{% trans "No sub-articles" %}</em></a></li>
+      {% endfor %}
+      {% if children_slice_more %}
+      <li><a href="#"><em>{% trans "...and more" %}</em></a></li>
+      {% endif %}
+      <li class="divider"></li>
+      <li>
+        <a href="{% url 'wiki:dir' path=urlpath.path %}">{% trans "Browse articles in this level" %} &raquo;</a>
+      </li>
+    </ul>
+  
+    <ul>
+      <li>
+        {% if urlpath.parent %}
+        <a href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 7px;">
+          <span class="fa fa-arrow-right"></span>
+          {% trans "New article next to" %} {{ article.current_revision.title }}
+        </a>
+        {% endif %}
+        <a href="{% url 'wiki:create' path=urlpath.path %}" style="padding: 7px;">
+          <span class="fa fa-arrow-down"></span>
+          {% trans "New article below" %} {{ article.current_revision.title }}
+        </a>
+      </li>
+    </ul>
+ <ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3
+    <ul>
+      <li>Item 3-1</li>
+      <li>Item 3-2</li>
+      <li>Item 3-3</li>
+      <li>Item 3-4</li>
+      <li>Item 3-5</li>
+    </ul>
+  </li>
+  <li>Item 4</li>
+  <li>Item 5</li>
+</ul>
+ -->
+

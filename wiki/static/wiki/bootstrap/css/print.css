@@ -1,0 +1,21 @@
+.navbar,
+.nav-tabs li a,
+#article-breadcrumbs
+{display: none;}
+
+#article-menu li
+{
+  display: none;
+}
+
+#article-title-li
+{
+  display: block !important;
+}
+
+.digitaldomain_header {
+  border: 100px solid #333;
+  width: 300px;
+  height:300px;
+}
+
